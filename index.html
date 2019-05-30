@@ -1,69 +1,368 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>bootstrap</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Navbar in bootstrap</title>
+	<meta name="viewport" content="width= device-width , initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/jquery-3.1.1.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		label{
+			color:white;
+		}
+  	     .carousel-inner > .item > img
+  	     {
+  	     	 width:100%;
+  	     	 height: 500px;
+  	     	 margin:auto;
+  	     }
+  	     @keyframes example {
+          0%   {color: red;}
+          25%  {color: yellow;}
+          50%  {color: blue;}
+          75%  {color: white;}
+          100% {color: green;}
 
+
+         }
+                                }
+  </style>
+  <script>
+ //  	function clear1(){
+	// 	document.getElementById("name").style.display="none";
+	// }
+	// function clear2(){
+	// 	document.getElementById("email").style.display="none";
+	// }
+	// function clear3(){
+	// 	document.getElementById("pass").style.display="none";
+	// 	return true;
+	// }
+	// function clear4(){
+	// 	document.getElementById("cpass").style.display="none";
+	// }
+    function password_valid()
+    {
+      var pass   = document.form.pass.value;
+      var cpass  = document.form.cpass.value;
+      var name  = document.form.name.value;
+      var email  = document.form.email.value;
+      var phone  = document.form.phone.value;
+       if(name==null||name==""){
+          document.getElementById('name').innerHTML="Please enter your name!";
+          return false;
+       }
+       else if(email==null||email==""){
+          document.getElementById('name').style.display="none";
+          document.getElementById('email').innerHTML="Please enter your email!";
+          return false;
+       }
+
+      else if (pass==null||pass=="") 
+       { 
+       	  document.getElementById('name').style.display="none";
+          document.getElementById('email').style.display="none";
+          document.getElementById('pass').innerHTML="Password can't be blank!";
+        return false;
+       }
+       else if (pass.length<6) 
+        { 
+          document.getElementById('name').style.display="none";
+          document.getElementById('email').style.display="none";
+          document.getElementById('pass').innerHTML="Password must be at least 6 characters!";
+          return false;
+        }
+        else if (cpass==null||cpass=="") 
+        { 
+          document.getElementById('name').style.display="none";
+          document.getElementById('email').style.display="none";
+          document.getElementById('pass').style.display="none";
+          document.getElementById('cpass').innerHTML="Confirm Password can't be blank!";
+          return false;
+        }
+        else if (pass!=cpass) 
+         {
+          document.getElementById('name').style.display="none";
+          document.getElementById('email').style.display="none";
+          document.getElementById('pass').style.display="none";
+          document.getElementById('cpass').innerHTML="Password doesn't match please try again!";
+          return false;
+         }
+        else if (phone==null||phone=="")
+        {
+        	document.getElementById('name').style.display="none";
+            document.getElementById('email').style.display="none";
+        	document.getElementById('pass').style.display="none";
+        	document.getElementById('cpass').style.display="none";
+          document.getElementById('phone').innerHTML="Number field doesn't be empty!";
+          return false;
+        }
+        else if(isNaN(phone))
+        {   
+            document.getElementById('name').style.display="none";
+            document.getElementById('email').style.display="none";
+        	document.getElementById('pass').style.display="none";
+        	document.getElementById('cpass').style.display="none";
+          document.getElementById('phone').innerHTML="Please Enter Numeric value for this field!";
+          return false;
+        }
+       else if(phone.charAt(0)!="+")
+       {
+       	document.getElementById('name').style.display="none";
+            document.getElementById('email').style.display="none";
+        	document.getElementById('pass').style.display="none";
+        	document.getElementById('cpass').style.display="none";
+          document.getElementById('phone').innerHTML="Number must be in below pattern<br>+923022382910";
+          return false;
+       }
+       else if(phone.charAt(1)!="9")
+       {
+       	document.getElementById('name').style.display="none";
+            document.getElementById('email').style.display="none";
+        	document.getElementById('pass').style.display="none";
+        	document.getElementById('cpass').style.display="none";
+          document.getElementById('phone').innerHTML="Country code should be only pakistan which is +92";
+          return false;
+       }
+       else if(phone.charAt(2)!="2")
+       {
+       	    document.getElementById('name').style.display="none";
+            document.getElementById('email').style.display="none";
+        	document.getElementById('pass').style.display="none";
+        	document.getElementById('cpass').style.display="none";
+            document.getElementById('phone').innerHTML="Country code should be only pakistani which is +92";
+          return false;
+       }
+       else if(phone.length!="13")
+       {
+       	document.getElementById('name').style.display="none";
+            document.getElementById('email').style.display="none";
+        	document.getElementById('pass').style.display="none";
+        	document.getElementById('cpass').style.display="none";
+          document.getElementById('phone').innerHTML="Please enter correct 13 digit number!";
+          return false;
+       }
+       else{
+       	return true;
+       }
+
+
+    }
+  </script>
 </head>
 <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      	 <div class="container-fluid">
+      	 	<div class="row">
+      	 		<div class="">
+      	 	     <div class="navbar-header">
+      	 	   <button class="navbar-toggle" data-toggle="collapse" data-target="#testNavbar" style="color:white;">
+      	 	   	 Menu
+      	 	   </button>
+      	 	  	 <a href="" class="navbar-brand" style="color:red;font-size:40px;">&nbspJZT Pakistan</a>
+      	 	     </div>
+      	 	  </div>
+      	 	  <div class="col-sm-9">
+      	 	  <div class="row">
+          <div id="testNavbar" class="collapse navbar-collapse">
+          	  
+          	   <div class="col-sm-5">
+          	    <ul class="nav navbar-nav">
+      	 	  	  <li><a href="#"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+      	 	  	  <li class="dropdown"><a class="dropdown dropdown-toggle" data-toggle="dropdown" href="">Admissions <span class="caret"></span></a>
+      	 	  	  		<ul class="dropdown-menu">
+      	 	  	  			 <li><a href="#">BS-Admissions</a></li>
+      	 	  	  			 <li><a href="#">MS-Admissions</a></li>
+      	 	  	  			 <li><a href="#">Ph.D-Admissions</a></li>
+      	 	  	  		</ul>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-info">
-	  <a class="navbar-brand" href="#">Navbar</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+      	 	  	  </li>
+      	 	  	  <li><a href="">Gallery</a></li>
+      	 	  	  
+      	 	  	  <li><a href="">About us</a></li>
+      	 	    </ul>
+      	 	    </div>
+               <div class="col-sm-4">
+      	 	  <ul class="navbar-form navbar-left">
+      	 	  	  <form>
+      	 	  	  	 <div class="form-group"> 
+      	 	  	  	 	 <input type="text" class="form-control" placeholder="Search here">
+      	 	  	  	 </div>
+      	 	  	  	 <button class="btn btn-success">Search</button>
+      	 	  	  </form>
+      	 	  </ul>
+               </div>
+              <div class="col-sm-3">
+      	 	 <ul class="nav navbar-nav navbar-right">
+      	 	 	<li><a href=""> <span class="glyphicon glyphicon-user"></span> Login</a></li>
+      	 	 	<li><a href="">Sign up</a></li>
+      	 	 </ul> 
+      	 	 </div>
+      	 	 </div>
+      	 	</div>
+         
+              </div>
+      	 	</div>
+      	 </div>
+      </nav>
+      <!-- navbar end here -->
+       <div class="container-fluid">
+       	<div class="row">
+         <div class="carousel slide" id="myCarousel" data-ride="carousel">
+      	  	  
+      	  	  
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Link</a>
-	      </li>
-	      <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Dropdown
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">Action</a>
-	          <a class="dropdown-item" href="#">Another action</a>
-	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Something else here</a>
-	        </div>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#">Disabled</a>
-	      </li>
-	    </ul>
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-	    </form>
-	  </div>
-	</nav>
+      	  	  <div class="carousel-inner">
+      	  	  	  <div class="item active">
+      	  	  	  	  <img src="images/3.jpg">
+      	  	  	  	  <div class="carousel-caption">
+      	  	  	  	  	    <h3 style="color:red;">Welcome to ICUP Squad</h3>
+      	  	  	  	  	    <p>spreading the light...</p>
+      	  	  	  	  </div>
+      	  	  	  </div>
+      	  	  	  <div class="item">
+      	  	  	  	<img src="images/2.jpg">
+                    <div class="carousel-caption">
+      	  	  	  	  	    <h3 style="color:red;">Young Passionat</h3>
+      	  	  	  	  	    <p>spreading the light...</p>
+      	  	  	  	  </div>
+      	  	  	  </div>
+      	  	  	  <div class="item">
+      	  	  	  	  <img src="images/1.jpg">
+                      <div class="carousel-caption">
+                            <h3 style="color:red;">Inspiration</h3>
+                            <p>spreading the light...</p></div>
+      	  	  	  </div>
+      	  	  	  <div class="item">
+      	  	  	  	  <img src="images/4.jpg">
+      	  	  	  </div>
+      	  	  </div>
+      	  	  <a href="#myCarousel" class="left carousel-control" data-slide="prev">
+      	  	  	  <span class="glyphicon glyphicon-chevron-left"></span>
+      	  	  </a>
+      	  	  <a href="#myCarousel" class="right carousel-control" data-slide="next">
+      	  	  	 <span class="glyphicon glyphicon-chevron-right"></span>
+      	  	  </a>
+      	  </div>
+       </div>
+      </div><hr>
+      <div class="container">
+        <div class="row">
+      	   <div class="col-sm-8" style="border: 2px solid red;background-image:url(11.jpg);">
+            <h1 align="center" style="color:red;">Form Validation</h1>
+      		    <form name="form" action="#" method="POST" onsubmit="return password_valid()">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" name="name" class="form-control" oninput="clear1()" placeholder="Name">
+                  <p id="name" style="color:red;font-weight:bold;"></p>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control" oninput="clear2()" placeholder="i-e example@email.com">
+                  <p id="email" style="color:red;font-weight:bold;"></p>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" name="pass" class="form-control" oninput="clear3()" placeholder="Password">
+                  <p id="pass" style="color:red;font-weight:bold;"></p>
+                </div>
+                <div class="form-group">
+                  <label>Confirm Password</label>
+                  <input type="password" name="cpass" class="form-control" oninput="clear4()" placeholder="Confirm Password">
+                  <p id="cpass" style="color:red;font-weight:bold;"></p>
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="text" name="phone" class="form-control" placeholder="i-e +923022382910">
+                  <p id="phone" style="color:red;font-weight:bold;"></p>
+                </div>
 
-    
-
-	  <div class="jumbotron">
-	  <h1 class="display-4">Hello, world!</h1>
-	  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-	  <hr class="my-4">
-	  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-	  <p class="lead">
-	    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-	  </p>
-	  </div>
 
 
 
 
 
+                <button class="btn btn-success">Submit</button>
 
+              </form>
+              <br>
+      	   </div>
+           <div class="col-sm-4" style="border:2px solid red;height: 497px;background-image:url(1.gif);" >
+             
+               <h1 align="center" style="color:orange;animation-name:example;animation-duration:4s;animation-iteration-count:infinite;">News Feed</h1>
+             <marquee height="400px;" scrollamount="3" direction="up" onMouseOver="this.stop();" onMouseOut="this.start();">&nbsp&nbsp&nbsp&nbsp
+             <a href="#"><img src="newicon (1).gif">Application forms for MSc regular students</a>
 
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#"><img src="newicon (1).gif">Application forms for BS regular students</a>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#"><img src="newicon (1).gif">Application forms for MS regular students</a>
+
+            
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#"><img src="newicon (1).gif">Application forms for BSc regular students</a>
+
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#">Application forms for BSc regular students</a>
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#">Application forms for BSc regular students</a>
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#">Application forms for BSc regular students</a>
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#">Application forms for BSc regular students</a>
+            <br>
+            <br>
+            <br>&nbsp&nbsp&nbsp&nbsp
+            <a href="#">Application forms for BSc regular students</a>
+            
+
+            
+             </marquee>
+
+             
+            
+        	   
+           </div>
+        </div>
+      </div>
+      <br>
+<div class="footer">
+	<div style="background-color: black;height: 30px;"><p align="center" style="line-height:30px;">&nbsp Copyrights @ 2018 Developed by Basit Ali Web developer at Tech Mentors Pakistan</p></div>
+</div>
 </body>
 </html>
+<script type="text/javascript">
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
